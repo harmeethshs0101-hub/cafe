@@ -1,42 +1,72 @@
 const localMenuImage = './images/food-placeholder.svg';
-const categoryImageMap = {
-  Indian: './images/indian.svg',
-  Chinese: './images/chinese.svg',
-  Continental: './images/continental.svg',
-  Desserts: './images/desserts.svg',
-  Mocktails: './images/mocktails.svg',
+const categoryPalettes = {
+  Indian: ['#a33b26', '#ffd27f', '#f7f2ea'],
+  Chinese: ['#c54f35', '#ffd08a', '#fff7ef'],
+  Continental: ['#4d4f9f', '#c7b8ff', '#f7f4ff'],
+  Desserts: ['#9c4a7d', '#ffcf9a', '#fff6fb'],
+  Mocktails: ['#167a9b', '#9fe8ff', '#f2fcff']
 };
 
+function buildMenuImage(name, category) {
+  const [accent, highlight, text] = categoryPalettes[category] || ['#4b5563', '#d1d5db', '#ffffff'];
+  const safeName = name.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  const pieces = safeName.split(' ');
+  const firstLine = pieces.slice(0, Math.ceil(pieces.length / 2)).join(' ');
+  const secondLine = pieces.slice(Math.ceil(pieces.length / 2)).join(' ');
+  const svg = `
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 420">
+      <defs>
+        <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+          <stop offset="0%" stop-color="${accent}"/>
+          <stop offset="100%" stop-color="${highlight}"/>
+        </linearGradient>
+      </defs>
+      <rect width="640" height="420" rx="26" fill="url(#bg)"/>
+      <circle cx="500" cy="88" r="56" fill="rgba(255,255,255,0.15)"/>
+      <circle cx="112" cy="338" r="96" fill="rgba(255,255,255,0.08)"/>
+      <rect x="40" y="50" width="560" height="320" rx="20" fill="rgba(12,12,12,0.18)" stroke="rgba(255,255,255,0.45)"/>
+      <text x="320" y="166" text-anchor="middle" font-size="28" font-weight="700" fill="${text}" font-family="Arial, Helvetica, sans-serif">${firstLine}</text>
+      <text x="320" y="206" text-anchor="middle" font-size="28" font-weight="700" fill="${text}" font-family="Arial, Helvetica, sans-serif">${secondLine || ''}</text>
+      <text x="320" y="275" text-anchor="middle" font-size="20" font-weight="600" fill="${text}" font-family="Arial, Helvetica, sans-serif">${category} Special</text>
+    </svg>
+  `;
+
+  return `data:image/svg+xml;charset=UTF-8,${encodeURIComponent(svg)}`;
+}
+
 const menuItems = [
-  { id: 1, category: 'Indian', name: 'Butter Chicken', description: 'Classic creamy and rich butter chicken.', price: 320, image: categoryImageMap.Indian },
-  { id: 2, category: 'Indian', name: 'Paneer Butter Masala', description: 'Soft paneer in creamy tomato gravy.', price: 260, image: categoryImageMap.Indian },
-  { id: 3, category: 'Indian', name: 'Dal Makhani', description: 'Slow-cooked lentils with buttery richness.', price: 220, image: categoryImageMap.Indian },
-  { id: 4, category: 'Indian', name: 'Veg Biryani', description: 'Aromatic rice with spiced vegetables.', price: 250, image: categoryImageMap.Indian },
-  { id: 5, category: 'Indian', name: 'Chicken Biryani', description: 'World-class biryani with tender chicken.', price: 320, image: categoryImageMap.Indian },
-  { id: 6, category: 'Indian', name: 'Tandoori Roti', description: 'Traditional Indian flatbread cooked fresh.', price: 30, image: categoryImageMap.Indian },
-  { id: 7, category: 'Chinese', name: 'Veg Noodles', description: 'Stir-fried noodles with vegetables.', price: 220, image: categoryImageMap.Chinese },
-  { id: 8, category: 'Chinese', name: 'Hakka Noodles', description: 'Wok-tossed noodles with bold flavors.', price: 250, image: categoryImageMap.Chinese },
-  { id: 9, category: 'Chinese', name: 'Chilli Paneer', description: 'Crispy paneer tossed in spicy sauce.', price: 240, image: categoryImageMap.Chinese },
-  { id: 10, category: 'Chinese', name: 'Chicken Manchurian', description: 'Tangy and spicy Indo-Chinese favorite.', price: 280, image: categoryImageMap.Chinese },
-  { id: 11, category: 'Chinese', name: 'Fried Rice', description: 'Classic fried rice with savory spice.', price: 230, image: categoryImageMap.Chinese },
-  { id: 12, category: 'Chinese', name: 'Spring Rolls', description: 'Crispy rolls served with a sweet dip.', price: 180, image: categoryImageMap.Chinese },
-  { id: 13, category: 'Continental', name: 'Grilled Chicken', description: 'Juicy grilled chicken with herbs.', price: 450, image: categoryImageMap.Continental },
-  { id: 14, category: 'Continental', name: 'White Sauce Pasta', description: 'Smooth creamy white sauce pasta.', price: 320, image: categoryImageMap.Continental },
-  { id: 15, category: 'Continental', name: 'Alfredo Pasta', description: 'Classic Alfredo pasta with parmesan.', price: 340, image: categoryImageMap.Continental },
-  { id: 16, category: 'Continental', name: 'Garlic Bread', description: 'Golden toasted bread with garlic butter.', price: 180, image: categoryImageMap.Continental },
-  { id: 17, category: 'Continental', name: 'Veg Burger', description: 'Veg burger topped with fresh sauce.', price: 250, image: categoryImageMap.Continental },
-  { id: 18, category: 'Continental', name: 'Chicken Burger', description: 'Tender chicken burger with cheese.', price: 320, image: categoryImageMap.Continental },
-  { id: 19, category: 'Desserts', name: 'Gulab Jamun', description: 'Warm syrup-soaked Indian dessert.', price: 120, image: categoryImageMap.Desserts },
-  { id: 20, category: 'Desserts', name: 'Rasmalai', description: 'Creamy saffron dessert with soft cheese.', price: 140, image: categoryImageMap.Desserts },
-  { id: 21, category: 'Desserts', name: 'Brownie', description: 'Rich chocolate brownie with fudgy texture.', price: 180, image: categoryImageMap.Desserts },
-  { id: 22, category: 'Desserts', name: 'Chocolate Cake', description: 'Moist and indulgent chocolate cake.', price: 220, image: categoryImageMap.Desserts },
-  { id: 23, category: 'Desserts', name: 'Ice Cream Sundae', description: 'Loaded sundae with toppings and cream.', price: 190, image: categoryImageMap.Desserts },
-  { id: 24, category: 'Mocktails', name: 'Virgin Mojito', description: 'Minty citrus mocktail with fresh lime.', price: 180, image: categoryImageMap.Mocktails },
-  { id: 25, category: 'Mocktails', name: 'Blue Lagoon', description: 'Cool blue mocktail with citrus sparkle.', price: 220, image: categoryImageMap.Mocktails },
-  { id: 26, category: 'Mocktails', name: 'Watermelon Cooler', description: 'Refreshing watermelon mocktail.', price: 190, image: categoryImageMap.Mocktails },
-  { id: 27, category: 'Mocktails', name: 'Mint Lemonade', description: 'Fresh mint and lemon blend.', price: 160, image: categoryImageMap.Mocktails },
-  { id: 28, category: 'Mocktails', name: 'Fruit Punch', description: 'Mixed fruit punch with vibrant flavor.', price: 210, image: categoryImageMap.Mocktails }
-];
+  { id: 1, category: 'Indian', name: 'Butter Chicken', description: 'Classic creamy and rich butter chicken.', price: 320 },
+  { id: 2, category: 'Indian', name: 'Paneer Butter Masala', description: 'Soft paneer in creamy tomato gravy.', price: 260 },
+  { id: 3, category: 'Indian', name: 'Dal Makhani', description: 'Slow-cooked lentils with buttery richness.', price: 220 },
+  { id: 4, category: 'Indian', name: 'Veg Biryani', description: 'Aromatic rice with spiced vegetables.', price: 250 },
+  { id: 5, category: 'Indian', name: 'Chicken Biryani', description: 'World-class biryani with tender chicken.', price: 320 },
+  { id: 6, category: 'Indian', name: 'Tandoori Roti', description: 'Traditional Indian flatbread cooked fresh.', price: 30 },
+  { id: 7, category: 'Chinese', name: 'Veg Noodles', description: 'Stir-fried noodles with vegetables.', price: 220 },
+  { id: 8, category: 'Chinese', name: 'Hakka Noodles', description: 'Wok-tossed noodles with bold flavors.', price: 250 },
+  { id: 9, category: 'Chinese', name: 'Chilli Paneer', description: 'Crispy paneer tossed in spicy sauce.', price: 240 },
+  { id: 10, category: 'Chinese', name: 'Chicken Manchurian', description: 'Tangy and spicy Indo-Chinese favorite.', price: 280 },
+  { id: 11, category: 'Chinese', name: 'Fried Rice', description: 'Classic fried rice with savory spice.', price: 230 },
+  { id: 12, category: 'Chinese', name: 'Spring Rolls', description: 'Crispy rolls served with a sweet dip.', price: 180 },
+  { id: 13, category: 'Continental', name: 'Grilled Chicken', description: 'Juicy grilled chicken with herbs.', price: 450 },
+  { id: 14, category: 'Continental', name: 'White Sauce Pasta', description: 'Smooth creamy white sauce pasta.', price: 320 },
+  { id: 15, category: 'Continental', name: 'Alfredo Pasta', description: 'Classic Alfredo pasta with parmesan.', price: 340 },
+  { id: 16, category: 'Continental', name: 'Garlic Bread', description: 'Golden toasted bread with garlic butter.', price: 180 },
+  { id: 17, category: 'Continental', name: 'Veg Burger', description: 'Veg burger topped with fresh sauce.', price: 250 },
+  { id: 18, category: 'Continental', name: 'Chicken Burger', description: 'Tender chicken burger with cheese.', price: 320 },
+  { id: 19, category: 'Desserts', name: 'Gulab Jamun', description: 'Warm syrup-soaked Indian dessert.', price: 120 },
+  { id: 20, category: 'Desserts', name: 'Rasmalai', description: 'Creamy saffron dessert with soft cheese.', price: 140 },
+  { id: 21, category: 'Desserts', name: 'Brownie', description: 'Rich chocolate brownie with fudgy texture.', price: 180 },
+  { id: 22, category: 'Desserts', name: 'Chocolate Cake', description: 'Moist and indulgent chocolate cake.', price: 220 },
+  { id: 23, category: 'Desserts', name: 'Ice Cream Sundae', description: 'Loaded sundae with toppings and cream.', price: 190 },
+  { id: 24, category: 'Mocktails', name: 'Virgin Mojito', description: 'Minty citrus mocktail with fresh lime.', price: 180 },
+  { id: 25, category: 'Mocktails', name: 'Blue Lagoon', description: 'Cool blue mocktail with citrus sparkle.', price: 220 },
+  { id: 26, category: 'Mocktails', name: 'Watermelon Cooler', description: 'Refreshing watermelon mocktail.', price: 190 },
+  { id: 27, category: 'Mocktails', name: 'Mint Lemonade', description: 'Fresh mint and lemon blend.', price: 160 },
+  { id: 28, category: 'Mocktails', name: 'Fruit Punch', description: 'Mixed fruit punch with vibrant flavor.', price: 210 }
+].map(item => ({
+  ...item,
+  image: buildMenuImage(item.name, item.category)
+}));
 
 const state = {
   selectedCategory: 'All',
