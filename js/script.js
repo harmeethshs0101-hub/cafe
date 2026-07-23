@@ -1,4 +1,4 @@
-const localMenuImage = '../Website1/makemystyle/images/logo.svg';
+const localMenuImage = './images/food-placeholder.svg';
 
 const menuItems = [
   { id: 1, category: 'Indian', name: 'Butter Chicken', description: 'Classic creamy and rich butter chicken.', price: 320, image: localMenuImage },

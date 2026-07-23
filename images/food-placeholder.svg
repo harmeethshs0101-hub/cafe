@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img" aria-labelledby="title desc">
+  <title id="title">Urban Taste Cafe Placeholder</title>
+  <desc id="desc">A clean restaurant-themed placeholder illustration.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#0f0f0f"/>
+      <stop offset="100%" stop-color="#2f2f2f"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="500" fill="url(#bg)" rx="28"/>
+  <rect x="70" y="70" width="660" height="360" rx="22" fill="#ffffff" fill-opacity="0.08" stroke="#ffffff" stroke-opacity="0.22"/>
+  <circle cx="400" cy="225" r="92" fill="#ffffff" fill-opacity="0.92"/>
+  <path d="M334 195c20-28 47-42 66-42 20 0 46 14 66 42-26 8-44 18-66 38-22-20-40-30-66-38Z" fill="#111111"/>
+  <path d="M400 190c16 0 30 12 30 28 0 37-30 58-30 58s-30-21-30-58c0-16 14-28 30-28Z" fill="#111111"/>
+  <path d="M305 264h190" stroke="#111111" stroke-width="10" stroke-linecap="round"/>
+  <path d="M338 297h124" stroke="#111111" stroke-width="10" stroke-linecap="round"/>
+  <text x="400" y="430" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="700" fill="#ffffff">Urban Taste Cafe</text>
+</svg>
