@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Urban Taste Cafe</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container">
+      <a class="navbar-brand" href="#home"><span class="me-2"><i class="fa-solid fa-utensils"></i></span>Urban Taste Cafe</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center">
+          <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#menu">Menu</a></li>
+          <li class="nav-item"><a class="nav-link" href="#categories">Categories</a></li>
+          <li class="nav-item"><a class="nav-link" href="#offers">Offers</a></li>
+          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+          <li class="nav-item ms-lg-2"><button class="btn btn-outline-light theme-toggle" id="themeToggle"><i class="fa-solid fa-moon"></i></button></li>
+          <li class="nav-item ms-lg-2"><button class="btn btn-light" id="cartToggle">Cart <span class="badge bg-dark" id="cartCount">0</span></button></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <section class="hero" id="home">
+    <div class="container hero-content">
+      <div class="row align-items-center">
+        <div class="col-lg-7">
+          <div class="badge text-light border rounded-pill px-3 py-2 mb-3">Premium Dining • Black & White Luxury</div>
+          <h1 class="hero-title">Welcome to Urban Taste Cafe</h1>
+          <p class="hero-subtitle lead mt-3">Experience Authentic Indian, Chinese & Continental Cuisine</p>
+          <div class="d-flex gap-3 flex-wrap mt-4">
+            <a href="#menu" class="btn btn-primary-custom">Order Now</a>
+            <a href="#categories" class="btn btn-outline-light">Explore Menu</a>
+          </div>
+        </div>
+        <div class="col-lg-5">
+          <div class="hero-side-badge">
+            <span>🍛</span>
+            <span>🥢</span>
+            <span>🍰</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-shell" id="menu">
+    <div class="container">
+      <div class="text-center mb-4" data-aos="fade-up">
+        <h2 class="section-title">Menu Categories</h2>
+        <p class="section-subtitle">Curated specialties crafted for every craving.</p>
+      </div>
+
+      <div class="filter-bar mb-4" id="categories">
+        <div class="row g-3 align-items-center">
+          <div class="col-md-4">
+            <input id="searchInput" class="form-control search-input" placeholder="Search menu items...">
+          </div>
+          <div class="col-md-8">
+            <div class="category-tabs nav nav-pills flex-wrap">
+              <button class="nav-link active" data-category="All">All</button>
+              <button class="nav-link" data-category="Indian">Indian</button>
+              <button class="nav-link" data-category="Chinese">Chinese</button>
+              <button class="nav-link" data-category="Continental">Continental</button>
+              <button class="nav-link" data-category="Desserts">Desserts</button>
+              <button class="nav-link" data-category="Mocktails">Mocktails</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="special-banner mb-5">
+        <div class="row align-items-center">
+          <div class="col-lg-8">
+            <div class="badge text-dark bg-light rounded-pill px-3 py-2 mb-2">Today’s Special</div>
+            <h3>Chef’s Signature Platter</h3>
+            <p class="mb-0 text-light">Butter Chicken, Veg Biryani, Garlic Bread, and a chilled Blue Lagoon mocktail — a premium experience at one unbeatable price.</p>
+          </div>
+          <div class="col-lg-4 text-lg-end mt-3 mt-lg-0">
+            <span class="fs-4 fw-bold">₹699</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="row" id="menuGrid"></div>
+    </div>
+  </section>
+
+  <section class="section-shell" id="offers">
+    <div class="container">
+      <div class="text-center mb-4">
+        <h2 class="section-title">Popular Picks</h2>
+        <p class="section-subtitle">Crowd favorites delivered with elegance.</p>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-4">
+          <div class="chef-card">
+            <h4>Chef Recommended</h4>
+            <p class="text-light">Tandoori Platter with saffron rice and smoky chutney.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="chef-card">
+            <h4>Popular Item</h4>
+            <p class="text-light">Chicken Manchurian served with wok-tossed noodles.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="chef-card">
+            <h4>Signature Dessert</h4>
+            <p class="text-light">Chocolate Cake with a warm brownie finish.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-shell">
+    <div class="container">
+      <div class="row g-4 text-center">
+        <div class="col-md-6 col-lg-3">
+          <div class="counter-box">
+            <div class="stat-value">150</div>
+            <div>Orders Today</div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="counter-box">
+            <div class="stat-value">5000+</div>
+            <div>Customers Served</div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="counter-box">
+            <div class="stat-value">100+</div>
+            <div>Menu Items</div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="counter-box">
+            <div class="stat-value">4500+</div>
+            <div>Happy Customers</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-shell" id="reviews">
+    <div class="container">
+      <div class="text-center mb-4">
+        <h2 class="section-title">Customer Reviews</h2>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-item d-block">
+          <div class="fs-4 mb-2">★★★★★</div>
+          <p class="lead">Best Cafe Experience Ever</p>
+        </div>
+        <div class="testimonial-item d-none">
+          <div class="fs-4 mb-2">★★★★★</div>
+          <p class="lead">Amazing Chinese Food</p>
+        </div>
+        <div class="testimonial-item d-none">
+          <div class="fs-4 mb-2">★★★★★</div>
+          <p class="lead">Fast Service & Great Ambience</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-shell" id="about">
+    <div class="container">
+      <div class="row align-items-center g-4">
+        <div class="col-lg-6">
+          <h2 class="section-title">About Urban Taste Cafe</h2>
+          <p class="section-subtitle">Urban Taste Cafe offers premium dining experiences with Indian, Chinese, Continental dishes, handcrafted desserts and refreshing mocktails.</p>
+        </div>
+        <div class="col-lg-6">
+          <div class="contact-card">
+            <h4>Why choose us</h4>
+            <ul class="text-light mb-0">
+              <li>Signature Chef-crafted meal combinations</li>
+              <li>Premium ambience with luxury styling</li>
+              <li>Fast doorstep ordering with seamless checkout</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-shell" id="contact">
+    <div class="container">
+      <div class="row g-4 align-items-center">
+        <div class="col-lg-5">
+          <div class="contact-card">
+            <h3>Contact</h3>
+            <p class="mb-2"><i class="fa-solid fa-phone me-2"></i>+91 9876543210</p>
+            <p class="mb-2"><i class="fa-solid fa-envelope me-2"></i><a href="mailto:info@urbantastecafe.com">info@urbantastecafe.com</a></p>
+            <p class="mb-2"><i class="fa-solid fa-location-dot me-2"></i>New Delhi, India</p>
+          </div>
+        </div>
+        <div class="col-lg-7">
+          <div class="map-placeholder">Google Map Placeholder</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="overlay" id="overlay"></div>
+
+  <aside class="side-cart" id="cartDrawer">
+    <div class="cart-head d-flex justify-content-between align-items-center">
+      <h4 class="mb-0">Your Cart</h4>
+      <button class="btn btn-close-white" id="closeCart"></button>
+    </div>
+    <div class="cart-list" id="cartList"></div>
+    <div class="cart-total">
+      <div class="d-flex justify-content-between"><span>Subtotal</span><strong id="subtotal">₹0</strong></div>
+      <div class="d-flex justify-content-between"><span>GST 5%</span><strong id="gst">₹0</strong></div>
+      <div class="d-flex justify-content-between h5 mt-2"><span>Grand Total</span><strong id="grandTotal">₹0</strong></div>
+      <div class="d-grid gap-2 mt-3">
+        <button class="btn btn-outline-light" id="clearCart">Clear Cart</button>
+        <button class="btn btn-light" id="checkoutBtn">Checkout</button>
+      </div>
+    </div>
+  </aside>
+
+  <a class="whatsapp-btn" href="https://wa.me/919876543210" target="_blank" aria-label="WhatsApp Order"><i class="fa-brands fa-whatsapp"></i></a>
+  <div class="cart-floating"><button class="btn btn-light" id="cartToggleBottom">Order Food</button></div>
+
+  <div class="modal fade" id="checkoutModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content bg-dark text-light">
+        <div class="modal-header border-secondary">
+          <h5 class="modal-title">Checkout</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <form id="orderForm">
+            <div class="mb-3">
+              <label class="form-label">Customer Name</label>
+              <input type="text" class="form-control" id="customerName" required>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Mobile Number</label>
+              <input type="tel" class="form-control" id="mobileNumber" required>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Table Number</label>
+              <input type="text" class="form-control" id="tableNumber" required>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Special Instructions</label>
+              <textarea class="form-control" id="specialInstructions" rows="3"></textarea>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Payment Options</label>
+              <select class="form-control" id="paymentOption">
+                <option>Cash</option>
+                <option>UPI</option>
+                <option>Card</option>
+              </select>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer border-secondary">
+          <button class="btn btn-outline-light" data-bs-dismiss="modal">Cancel</button>
+          <button class="btn btn-light" id="placeOrderBtn">Place Order</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <dialog id="successModal" class="bg-dark text-light border-0 rounded-4 p-4">
+    <div class="text-center">
+      <div class="success-check mb-3"></div>
+      <h3>Order Successfully Placed</h3>
+      <p class="mb-2">Order Number: <strong id="confirmationOrder"></strong></p>
+      <p>Estimated Time: <strong id="confirmationTime"></strong></p>
+      <button class="btn btn-light" id="closeSuccess">Done</button>
+    </div>
+  </dialog>
+
+  <footer class="footer text-center">
+    <div class="container">
+      <div class="d-flex justify-content-center gap-3 mb-3">
+        <a href="#" class="text-light"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="#" class="text-light"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#" class="text-light"><i class="fa-brands fa-twitter"></i></a>
+      </div>
+      <div class="mb-2">
+        <a href="#home" class="text-light me-3">Home</a>
+        <a href="#menu" class="text-light me-3">Menu</a>
+        <a href="#contact" class="text-light">Contact</a>
+      </div>
+      <p class="mb-0">© 2026 Urban Taste Cafe</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>
