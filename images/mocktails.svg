@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img" aria-labelledby="title desc">
+  <title id="title">Mocktails</title>
+  <desc id="desc">Illustration representing mocktails.</desc>
+  <rect width="800" height="500" fill="#0f0f0f"/>
+  <rect x="40" y="40" width="720" height="420" rx="28" fill="#fff" fill-opacity="0.07" stroke="#fff" stroke-opacity="0.2"/>
+  <circle cx="400" cy="220" r="120" fill="#ffffff" fill-opacity="0.94"/>
+  <path d="M320 190h160v85c0 28-25 52-55 52h-50c-30 0-55-24-55-52Z" fill="#111"/>
+  <path d="M340 160h120" stroke="#111" stroke-width="12" stroke-linecap="round"/>
+  <path d="M350 150c0-22 18-40 40-40s40 18 40 40" stroke="#111" stroke-width="12" stroke-linecap="round" fill="none"/>
+  <path d="M360 260h80" stroke="#fff" stroke-width="12" stroke-linecap="round"/>
+  <text x="400" y="430" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="700" fill="#ffffff">Mocktails</text>
+</svg>

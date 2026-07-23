@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img" aria-labelledby="title desc">
+  <title id="title">Chinese Food</title>
+  <desc id="desc">Illustration representing Chinese cuisine.</desc>
+  <rect width="800" height="500" fill="#0f0f0f"/>
+  <rect x="40" y="40" width="720" height="420" rx="28" fill="#fff" fill-opacity="0.07" stroke="#fff" stroke-opacity="0.2"/>
+  <circle cx="400" cy="220" r="120" fill="#ffffff" fill-opacity="0.94"/>
+  <path d="M290 210c32-38 70-58 110-58s78 20 110 58c-46 20-72 28-110 28s-64-8-110-28Z" fill="#111"/>
+  <path d="M300 185c22-44 48-66 100-66 52 0 78 22 100 66" stroke="#111" stroke-width="12" fill="none" stroke-linecap="round"/>
+  <path d="M360 185h80" stroke="#111" stroke-width="12" stroke-linecap="round"/>
+  <text x="400" y="430" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="700" fill="#ffffff">Chinese Food</text>
+</svg>
